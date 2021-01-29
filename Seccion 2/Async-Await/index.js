@@ -24,8 +24,13 @@ let saludo = async () => {
   hay que tener cuidado por que si getNombre no resuelve nada se queda
   en un ciclo infinito
   */
-  let nombre = await getNombre();
-  return `Hola ${nombre}`;
+
+  try {
+    let nombre = await getNombre();
+    return `Hola ${nombre}`;
+  } catch (error) {
+    throw error;
+  }
 };
 
 saludo()
